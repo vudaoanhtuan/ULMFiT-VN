@@ -29,6 +29,7 @@ if __name__=='__main__':
         max_vocab=30000,
         include_bos=True,
         include_eos=True,
+        chunksize=1000
     )
 
     output_path = os.path.join(args.output_dir, args.output_file)
