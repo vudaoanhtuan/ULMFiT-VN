@@ -25,7 +25,10 @@ if __name__=='__main__':
         header=None,
         text_cols=0, 
         label_cols=None,
-        min_freq=0
+        min_freq=100,
+        max_vocab=30000,
+        include_bos=True,
+        include_eos=True,
     )
 
     output_path = os.path.join(args.output_dir, args.output_file)
