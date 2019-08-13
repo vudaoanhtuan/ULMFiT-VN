@@ -23,15 +23,17 @@ if __name__=='__main__':
     max_lr = args.max_lr
     weight_file = args.load_model
 
-    data_lm = FT.load('./', data_file)
+    print("Loading data...")
+    data_lm = FT.load_data('./', data_file)
     learner = FT.language_model_learner(data_lm, FT.AWD_LSTM)
     
     if not os.path.isdir(weight_file):
         raise Exception("Invalid weight path")
     else:
-        print("Load weight")
+        print("Loading weight...")
         learner = learner.load(weight_file)
     
+    print("Start training")
     learner.fit_one_cycle(num_cycle, max_lr)
     learner.save("model")
     learner.save_encoder("encoder")
